@@ -1,1 +1,1 @@
-run="sh main.sh"
+run="sh main.sh >> replit.log"

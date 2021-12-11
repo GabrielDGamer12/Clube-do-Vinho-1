@@ -6,6 +6,7 @@ const { Client, Message, MessageEmbed, Collection, WebhookClient } = require("di
 const fs = require('fs');
 const { MongoClient } = require('mongodb');
 
+
 const urlDB = `mongodb+srv://gabrieldgamer:${process.env.dbpass}@databasecdv.rfh9y.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`;
 const clientDB = new MongoClient(urlDB, { useNewUrlParser: true, useUnifiedTopology: true });
 clientDB.connect()//err => {
@@ -18,6 +19,8 @@ app.get("/", (request, response) => {
   console.log(`Ping recebido às ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
   response.sendStatus(200);
 });
+const ping = new Date();
+console.log((ping.getUTCHours() - 3) + ":" + ping.getUTCMinutes())
 app.listen(process.env.PORT);
 console.log(`Hello from Node.js ${process.version}!`);
 const { prefix } = require("./settings/config.json");
